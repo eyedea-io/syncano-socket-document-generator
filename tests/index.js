@@ -9,6 +9,8 @@ chai.use(chaiAsPromised)
 const assert = chai.assert
 const s = new Syncano(process.env.SYNCANO_INSTANCE_NAME)
 
+// TODO: Initialize temporary instance name
+
 describe('document generator', function () {
   let document = {
     template: '<p>Hello, my name is {{firstName}}</p>',
