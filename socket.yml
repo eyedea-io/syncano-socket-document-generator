@@ -1,6 +1,6 @@
 name: document-generator
 description: Generate documents from templates
-version: 0.0.3
+version: 0.0.4
 keywords:
   - markdown
   - document
