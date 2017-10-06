@@ -20,11 +20,16 @@
     "syncano-test": "^0.1.10"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "marked": "^0.3.6",
-    "syncano-server": "beta",
-    "template7": "^1.2.5"
+    "mustache": "^2.3.0",
+    "syncano-server": "beta"
   },
   "babel": {
+    "plugins": [
+      "syntax-object-rest-spread",
+      "transform-object-rest-spread"
+    ],
     "presets": [
       [
         "env",
