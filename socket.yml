@@ -34,16 +34,16 @@ endpoints:
           }
     response:
       mimetype: text/html
-      examples:
-        - exit_code: 200
-          description: Success
-          example: |
-            <div>
-              <h1>Hello world</h1>
-            </div>
-        - exit_code: 400
-          description: Failed
-          example: |
-            {
-              "message": "Failed to generate document."
-            }
+      success:
+        description: Success
+        example: |
+          <div>
+            <h1>Hello world</h1>
+          </div>
+      fail:
+        exit_code: 400
+        description: Failed
+        example: |
+          {
+            "message": "Failed to generate document."
+          }
