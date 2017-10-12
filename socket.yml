@@ -10,7 +10,7 @@ keywords:
 endpoints:
   generate:
     description: Generate document
-    file: scripts/generate.js
+    file: generate.js
     parameters:
       template:
         type: string
