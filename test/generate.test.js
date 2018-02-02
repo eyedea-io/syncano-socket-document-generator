@@ -1,6 +1,6 @@
 /* global describe it */
 import {assert} from 'chai'
-import {run, generateMeta} from 'syncano-test'
+import {run, generateMeta} from '@syncano/test'
 
 describe('generate', function () {
   const meta = generateMeta()
