@@ -1,6 +1,6 @@
 {
   "name": "@eyedea-sockets/document-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "public": true,
   "description": "Syncano Socket for generating documents from mustache templates",
   "author": "EYEDEA <hello@eyedea.io> (https://eyedea.io)",
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@eyedea/syncano": "0.2.0",
+    "@types/cheerio": "^0.22.8",
     "cheerio": "^1.0.0-rc.2",
     "marked": "^0.3.6",
     "mustache": "^2.3.0"
@@ -74,15 +75,7 @@
     "collectCoverageFrom": [
       "src/**/*.ts",
       "!src/**/*.d.ts"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": -10
-      }
-    }
+    ]
   },
   "babel": {
     "sourceMaps": "inline",

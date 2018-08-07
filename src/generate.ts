@@ -16,12 +16,13 @@ class Endpoint extends S.Endpoint<Args> {
     let template = args.template
     template = md(template) // Parse markdown
     const rendered = Mustache.render(template, {...args.data, ...helpers})
+
     return response(rendered, 200, 'text/html')
   }
 
   // Any error thrown in `run` method can be handled using `endpointDidCatch` method
   endpointDidCatch(err: Error) {
-    this.syncano.response.json({message: err.message}, 400)
+    this.syncano.response.json({message: 'Failed to generate document.'}, 400)
   }
 }
 
