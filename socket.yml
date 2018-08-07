@@ -1,20 +1,12 @@
 name: document-generator
 description: Generate documents from templates
-version: 0.0.7
-keywords:
-  - markdown
-  - document
-  - template
-  - generate
-  - eyedea
 endpoints:
   generate:
     description: Generate document
-    file: generate.js
-    parameters:
+    properties:
       template:
         type: string
-        description: Template to parse. Supports markdown and template7 engine.
+        description: Template to parse.
         example: |
           # Heading level 1
           <div>
