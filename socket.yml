@@ -1,41 +1,29 @@
 name: document-generator
-description: Generate documents from templates
+
 endpoints:
   generate:
-    description: Generate document
-    properties:
-      template:
-        type: string
-        description: Template to parse.
-        example: |
-          # Heading level 1
-          <div>
-            {{#each people}}
-            - {{name}} is a {{role}}
-            {{/each}}
-          </div>
-      data:
-        type: object
-        description: Object of parameters passed to template
-        example: |
-          {
-            "people": [
-              {"name": "Jane Doe", "role": "Product Owner"},
-              {"name": "John Doe","role": "CEO"}
-            ]
-          }
-    response:
-      mimetype: text/html
+    description: Endpoint for generating documents from mustache templates
+    inputs:
+      properties:
+        template:
+          type: string
+          description: document template
+          example: |
+            <p>Hello, my name is {{name}}</p>
+        data:
+          type: object
+          description: params for template
+          example: |
+            {
+              name: 'John'
+            }
+    outputs:
       success:
+        exit_code: 200
         description: Success
-        example: |
-          <div>
-            <h1>Hello world</h1>
-          </div>
+        example: <p>Hello, my name is John</p>
       fail:
         exit_code: 400
         description: Failed
-        example: |
-          {
-            "message": "Failed to generate document."
-          }
+
+
