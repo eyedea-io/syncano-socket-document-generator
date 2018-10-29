@@ -3,17 +3,27 @@ name: document-generator
 endpoints:
   generate:
     description: Endpoint for generating documents from mustache templates
-    properties:
-      template:
-        type: string
-        description: document template
-        example: |
-          <p>Hello, my name is {{name}}</p>
-      data:
-        type: object
-        description: params for template
-        example: |
-          {
-            name: 'John'
-          }
+    inputs:
+      properties:
+        template:
+          type: string
+          description: document template
+          example: |
+            <p>Hello, my name is {{name}}</p>
+        data:
+          type: object
+          description: params for template
+          example: |
+            {
+              name: 'John'
+            }
+    outputs:
+      success:
+        exit_code: 200
+        description: Success
+        example: <p>Hello, my name is John</p>
+      fail:
+        exit_code: 400
+        description: Failed
+
 
