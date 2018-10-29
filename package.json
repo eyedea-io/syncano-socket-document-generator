@@ -1,40 +1,34 @@
 {
   "name": "@eyedea-sockets/document-generator",
-  "version": "0.0.2",
+  "version": "0.0.1",
+  "description": "Description",
+  "repository": "https://github.com/eyedea-io/syncano-socket-document-generator.git",
   "public": true,
-  "description": "Syncano Socket for generating documents from mustache templates",
-  "author": "EYEDEA <hello@eyedea.io> (https://eyedea.io)",
-  "repository": "https://github.com/eyedea-io/syncano-socket-document-genrator.git",
+  "author": "Eyedea <hello@eyedea.io> https://eyedea.io",
   "license": "MIT",
   "keywords": [
-    "serverless",
     "syncano",
-    "socket",
-    "mustache",
-    "document",
-    "marked",
-    "templates"
+    "socket"
   ],
   "peerDependencies": {
-    "@syncano/cli": "0.13.0-alpha.4d352111"
+    "@syncano/cli": "^0.13.0-alpha.f6ea95d4"
   },
   "dependencies": {
     "@eyedea/syncano": "0.2.0",
-    "@types/cheerio": "^0.22.8",
     "cheerio": "^1.0.0-rc.2",
-    "marked": "^0.3.6",
-    "mustache": "^2.3.0"
+    "marked": "^0.5.1",
+    "mustache": "^3.0.0"
   },
   "scripts": {
     "build": "npm run build:src && npm run build:env",
     "build:src": "sh ./bin/compile",
     "build:env": "sh ./bin/compile-env",
-    "test": "npm-run-all --parallel test:lint test:audit test:all",
+    "test": "npm-run-all --parallel test:lint test:audit test:unit",
     "codecov": "codecov",
     "test:all": "NODE_ENV=test jest e2e/.*\\.test\\.js unit/.*\\.test\\.js",
     "test:unit": "NODE_ENV=test jest unit/.*\\.test\\.js",
     "test:e2e": "NODE_ENV=test jest e2e/.*\\.test\\.js",
-    "test:audit": "npm audit",
+    "test:audit": "npm audit || exit 0",
     "test:lint": "tslint --fix -c tslint.json ./src/**/*.ts"
   },
   "devDependencies": {
@@ -42,10 +36,14 @@
     "@babel/core": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
     "@babel/preset-typescript": "^7.0.0-beta.55",
-    "@syncano/test": "0.13.0-alpha.4d352111",
+    "@syncano/test": "^0.13.0-alpha.4d352111",
+    "@types/cheerio": "^0.22.9",
+    "@types/marked": "^0.4.2",
+    "@types/mustache": "^0.8.32",
     "@types/node": "^10.5.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
+    "babel-plugin-import": "^1.10.0",
     "babel-plugin-istanbul": "^4.1.6",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "codecov": "^3.0.4",

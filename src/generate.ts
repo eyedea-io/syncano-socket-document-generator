@@ -1,7 +1,7 @@
-import Mustache from 'mustache'
-import md from 'marked'
-import helpers from './helpers'
 import * as S from '@eyedea/syncano'
+import md from 'marked'
+import * as Mustache from 'mustache'
+import helpers from './helpers'
 
 interface Args {
   template: string
@@ -10,18 +10,18 @@ interface Args {
 
 class Endpoint extends S.Endpoint<Args> {
   async run(
-    {response, logger}: S.Core,
+    {response}: S.Core,
     {args}: S.Context<Args>
   ) {
     let template = args.template
-    template = md(template) // Parse markdown
+    template = md(template)
     const rendered = Mustache.render(template, {...args.data, ...helpers})
 
-    return response(rendered, 200, 'text/html')
+    response(rendered, 200, 'text/html')
   }
 
   // Any error thrown in `run` method can be handled using `endpointDidCatch` method
-  endpointDidCatch(err: Error) {
+  endpointDidCatch() {
     this.syncano.response.json({message: 'Failed to generate document.'}, 400)
   }
 }
