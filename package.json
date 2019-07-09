@@ -21,7 +21,7 @@
   "dependencies": {
     "@eyedea/syncano": "0.2.0",
     "cheerio": "^1.0.0-rc.2",
-    "marked": "^0.5.1",
+    "marked": "^0.7.0",
     "mustache": "^3.0.0"
   },
   "scripts": {
